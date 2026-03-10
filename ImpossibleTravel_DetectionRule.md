@@ -283,8 +283,8 @@ The following techniques are covered by this detection rule. The primary tactic 
 
 ## 📚 References
 
-- https://attack.mitre.org/tactics/TA0001/
-- https://attack.mitre.org/tactics/TA0006/
+- [Initial Access](https://attack.mitre.org/tactics/TA0001/)
+- [Credential Access](https://attack.mitre.org/tactics/TA0006/)
 - [Sentinel Scheduled Rules](https://learn.microsoft.com/en-us/azure/sentinel/create-analytics-rules?tabs=defender-portal)
 
 ---
