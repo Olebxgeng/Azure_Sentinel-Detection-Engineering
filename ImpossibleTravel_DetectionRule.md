@@ -1,4 +1,4 @@
-# 🚨 [THREAT DETECTION RULE Impossible Travel Login]
+# [THREAT DETECTION RULE Impossible Travel Login]
 
 ---
 
@@ -23,7 +23,7 @@
 
 ---
 
-## 📖 Description
+## Description
 
 This Sentinel Analytics Rule detects Impossible Travel — a scenario where a user account successfully authenticates from two geographically distant locations within a timeframe that makes physical travel between them impossible. The pattern is a strong indicator of credential compromise, account takeover, or the use of anonymisation infrastructure such as VPNs, proxies, or Tor exit nodes.
 
@@ -39,7 +39,7 @@ This Sentinel Analytics Rule detects Impossible Travel — a scenario where a us
 
 ---
 
-## 🔍 KQL Detection Query
+## KQL Detection Query
 
 > Deploy in Sentinel under **Analytics → Create → Scheduled Query Rule**.
 
@@ -130,7 +130,7 @@ AppDisplayName, ClientAppUsed, RiskLevelDuringSignIn, RiskState, ConditionalAcce
 
 ---
 
-## ⚠️ False Positive Guidance
+## False Positive Guidance
 
 ### Known Benign Scenarios
 
@@ -149,9 +149,9 @@ AppDisplayName, ClientAppUsed, RiskLevelDuringSignIn, RiskState, ConditionalAcce
 
 ---
 
-## 🛡️ Investigation Steps
+## Investigation Steps
 
-> ⚠️ **Analyst Reminder:** Treat this as a potential account takeover until proven otherwise. Do NOT alert the user until initial triage is complete — avoid tipping off a potential attacker.
+>  **Analyst Reminder:** Treat this as a potential account takeover until proven otherwise. Do NOT alert the user until initial triage is complete — avoid tipping off a potential attacker.
 
 ### Phase 1 — Initial Triage *(0–15 minutes)*
 
@@ -213,14 +213,14 @@ AuditLogs
 
 | Verdict | Recommended Action |
 |---|---|
-| ✅ Confirmed threat/compromise | Containment action Disable account in Entra ID, revoke all refresh tokens(Revoke-MgUserSignInSession -UserId), initiate out-of-band password reset, notify manager|
-| 🔶 High suspicion | Apply temporary Conditional Access policy requiring compliant device + strong MFA challenge pending further investigation |
-| ✅ False positive | Document reason (VPN / proxy / travel), add IP to watchlist exclusion, close incident with classification and analyst notes |
-| 📦 Evidence preservation | Export SigninLogs and AuditLogs to storage account or Log Analytics for forensic retention regardless of verdict |
+| Confirmed threat/compromise | Containment action Disable account in Entra ID, revoke all refresh tokens(Revoke-MgUserSignInSession -UserId), initiate out-of-band password reset, notify manager|
+|  High suspicion | Apply temporary Conditional Access policy requiring compliant device + strong MFA challenge pending further investigation |
+|  False positive | Document reason (VPN / proxy / travel), add IP to watchlist exclusion, close incident with classification and analyst notes |
+|  Evidence preservation | Export SigninLogs and AuditLogs to storage account or Log Analytics for forensic retention regardless of verdict |
 
 ---
 
-## 🗺️ MITRE ATT&CK Mapping
+##  MITRE ATT&CK Mapping
 
 The following techniques are covered by this detection rule. The primary tactic is Initial Access via Valid Accounts (T1078), but the signal is consistent with multiple credential-theft and evasion patterns.
 
@@ -242,7 +242,7 @@ The following techniques are covered by this detection rule. The primary tactic 
 
 ---
 
-## 🤖 Automated Response Playbook
+##  Automated Response Playbook
 
 > Configure as a LogicApp in Sentinel under **Automation → Create → Automation rule**, triggered on alert creation.
 
@@ -256,7 +256,7 @@ The following techniques are covered by this detection rule. The primary tactic 
 
 ---
 
-## 🚀 Deployment Instructions
+##  Deployment Instructions
 
 ### Prerequisites
 
@@ -281,7 +281,7 @@ The following techniques are covered by this detection rule. The primary tactic 
 
 ---
 
-## 📚 References
+##  References
 
 - [Initial Access](https://attack.mitre.org/tactics/TA0001/)
 - [Credential Access](https://attack.mitre.org/tactics/TA0006/)
@@ -289,7 +289,7 @@ The following techniques are covered by this detection rule. The primary tactic 
 
 ---
 
-## 🔄 Change Log
+##  Change Log
 
 | Version | Date | Author | Summary |
 |---|---|---|---|
